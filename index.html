@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>VR CRUD - Catálogo 3D</title>
+
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="menu">
+
+<h1>Catálogo 3D</h1>
+
+<input id="nomeObjeto" placeholder="Nome do Produto">
+<input id="categoria" placeholder="Categoria do Produto">
+<input type="color" id="cor" value="#ef4444" title="Cor do Produto" style="vertical-align:middle">
+<div id="palette" style="display:inline-block;margin-left:8px;vertical-align:middle">
+	<button onclick="setColor('#ef4444')" style="width:22px;height:22px;border:none;margin-right:6px;cursor:pointer;background:#ef4444;border-radius:4px" aria-label="cor 1"></button>
+	<button onclick="setColor('#3b82f6')" style="width:22px;height:22px;border:none;margin-right:6px;cursor:pointer;background:#3b82f6;border-radius:4px" aria-label="cor 2"></button>
+	<button onclick="setColor('#22c55e')" style="width:22px;height:22px;border:none;margin-right:6px;cursor:pointer;background:#22c55e;border-radius:4px" aria-label="cor 3"></button>
+	<button onclick="setColor('#eab308')" style="width:22px;height:22px;border:none;margin-right:6px;cursor:pointer;background:#eab308;border-radius:4px" aria-label="cor 4"></button>
+	<button onclick="setColor('#a855f7')" style="width:22px;height:22px;border:none;margin-right:6px;cursor:pointer;background:#a855f7;border-radius:4px" aria-label="cor 5"></button>
+	<button onclick="setColor('#f97316')" style="width:22px;height:22px;border:none;cursor:pointer;background:#f97316;border-radius:4px" aria-label="cor 6"></button>
+</div>
+
+<button onclick="createItem()">➕ Criar</button>
+<button onclick="renderItems()">📋 Listar</button>
+<button onclick="updateItemPrompt()">🎨 Atualizar</button>
+<button onclick="deleteItemPrompt()">❌ Remover</button>
+
+<div><br>Lista de Itens</div>
+<div id="itemsList" style="margin-top:8px;"></div>
+
+</div>
+
+<a-scene background="color: #0f172a">
+
+<a-camera position="0 1.6 3">
+<a-cursor color="white"></a-cursor>
+</a-camera>
+
+<a-light type="ambient" intensity="0.6"></a-light>
+
+<a-light 
+type="directional"
+position="3 5 2"
+intensity="1">
+</a-light>
+
+<a-plane 
+rotation="-90 0 0"
+width="30"
+height="30"
+color="#1e293b">
+</a-plane>
+
+<a-entity id="container"></a-entity>
+
+</a-scene>
+
+<script src="./scripts/script.js"></script>
+
+</body>
+</html>
